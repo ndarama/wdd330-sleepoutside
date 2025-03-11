@@ -1,5 +1,5 @@
-Ndarama Mark
-<<<<<<< HEAD
+Team Members:
+- Ndarama Mark
+- 
+-
 https://trello.com/b/hBrawCbn/sleep-outside-team-3
-=======
->>>>>>> 1aa70916730fe9391a1093724c5f19ead1398879
