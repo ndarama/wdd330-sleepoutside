@@ -13,7 +13,7 @@ product.init();
 console.log(dataSource.findProductById(productId)); //week2 
 
 function addProductToCart(product) {
-  const cartItems = getLocalStorage("so-cart");
+  let cartItems = getLocalStorage("so-cart") || []; // Ensuring cart is an array
   console.log("cartItems:", cartItems, "Type:", typeof cartItems); // Debugging
 
   if (!Array.isArray(cartItems)) {
@@ -23,10 +23,11 @@ function addProductToCart(product) {
 
   cartItems.push(product);
   setLocalStorage("so-cart", cartItems);
+  console.log("Cart updated:", cartItems); 
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
-  const product = await dataSource.findProductById(e.target.dataset.id);
+  const product = await dataSource.findProductById(productId);//(e.target.dataset.id);
   addProductToCart(product);
 }
 
