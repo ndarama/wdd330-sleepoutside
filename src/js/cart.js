@@ -1,5 +1,6 @@
 import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 
+
 loadHeaderFooter();
 
 function renderCartContents() {
@@ -29,7 +30,7 @@ function cartItemTemplate(item) {
 }
 //function to compute total items and total price
 function cartTotal(items) {
-  const cartCard = document.querySelector(".list-total");
+  const cartCard = document.querySelector(".list-footer");
   const cartCountElem = document.querySelector(".cart-count");
   const cartSubtotalElem = document.querySelector(".cart-subtotal");
 

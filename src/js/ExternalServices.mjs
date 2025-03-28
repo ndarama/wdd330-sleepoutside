@@ -7,7 +7,7 @@ function convertToJson(res) { //converts API response to a Javascript object
 }
 
 
-export default class ProductData {
+export default class ExternalServices {
   constructor() {
     //this.category = category;  //storing the product category ie (tents)
    // this.path = `../public/json/${this.category}.json`; // Constructs the path to the JSON file based on the category
