@@ -91,3 +91,24 @@ export function removeAllAlerts() {
   const alerts = document.querySelectorAll(".alert");
   alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
+
+//function for showing number of items in the cart icon
+
+export function cartSuperscript(cartItems) {
+  const cartCountElement = document.querySelector(".cart-superscript");
+  
+  if (cartItems.length === 0) {
+    cartCountElement.classList.add("hide");
+  } else {
+    cartCountElement.classList.remove("hide");
+  }
+
+  const qty = cartItems.reduce((amount, item) => {
+    return amount + item.Qtd;
+  }, 0)
+
+  //if items in cart display number from item length
+  if (qty >= 0) {
+    cartCountElement.textContent = qty;
+  }
+}

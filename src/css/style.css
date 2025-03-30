@@ -202,6 +202,18 @@ button {
   grid-column: 3;
 }
 
+.cart-superscript {
+  position: absolute;
+  top: 5px;
+  right: -9px;
+  padding: 5px 8px;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  background: #F44336;
+}
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
