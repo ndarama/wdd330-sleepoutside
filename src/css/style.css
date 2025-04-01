@@ -202,6 +202,109 @@ button {
   grid-column: 3;
 }
 
+.checkout-form {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+  border: 2px solid var(--light-grey);
+  border-radius: 6px;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+}
+
+legend {
+  padding: 0 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin: 0.8rem 0 0.4rem;
+  color: #000;
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid var(--light-grey);
+  border-radius: 4px;
+  background: #fff;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+input:hover {
+  border-color: #999;
+}
+
+input:focus,
+input:active {
+  border-color: #000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.checkout__name,
+.checkout__address,
+.checkout__payment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checkout-summary {
+  background: #eee;
+  border-color: var(--light-grey);
+}
+
+.order__summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.order__summary div {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--light-grey);
+}
+
+.order__summary div:nth-child(even) {
+  text-align: right;
+  font-weight: bold;
+}
+
+#checkoutSubmit {
+  background: var(--dark-grey);
+  color: var(--light-grey);
+  padding: 1rem 2rem;
+  border: 2px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#checkoutSubmit:hover {
+  background: #333;
+  border-color: #333;
+}
+
+#checkoutSubmit:active {
+  background: #666;
+  transform: translateY(1px);
+}
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
