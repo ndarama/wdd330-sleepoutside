@@ -9,6 +9,7 @@ export function qs(selector, parent = document) {
 export function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key)); //|| [];
   return JSON.parse(localStorage.getItem(key)) || [];
+
 }
 // save data to local storage
 export function setLocalStorage(key, data) {
@@ -23,7 +24,6 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
   
 }
-
 
 export function getParam(param) { 
   const queryString = window.location.search;
@@ -71,6 +71,7 @@ export async function loadHeaderFooter(){
     renderWithTemplate(footerTemplate, footerElement);
   }
 }
+
 //WEEK 03
 
 // Dynamically render a list of items using a provided template function.
@@ -114,4 +115,3 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
 }
-

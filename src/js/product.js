@@ -3,8 +3,6 @@ import ProductData from "./ProductData.mjs";
 import { getParam } from "./utils.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
-
-
 const dataSource = new ProductData("tents");
 const productId = getParam('product');//week 2
 
@@ -30,7 +28,6 @@ function addProductToCart(product) {
   cartItems.push(product);
   setLocalStorage("so-cart", cartItems);
   console.log("Cart updated:", cartItems); 
-
 }
 
 // Add to cart button event handler
