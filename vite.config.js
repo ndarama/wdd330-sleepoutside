@@ -15,8 +15,7 @@ export default defineConfig({
         cart: resolve(__dirname, "src/cart/index.html"),
         productListing: resolve(__dirname,"src/product_listing/index.html"), 
         checkout: resolve(__dirname, "src/checkout/index.html"),
-        product: resolve("src/product_pages/cedar-ridge-rimrock-2.html",
-        ),
+                ),
         
       },
     },
