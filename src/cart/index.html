@@ -1,33 +1,45 @@
-<!doctype html>
-
+<!-- WEEK 03 -->
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Sleep Outside | Cart</title>
-
+    <link rel="icon" type="image" href="/images/favicon-32x32.png">
     <link rel="stylesheet" href="/css/style.css" />
-
     <script src="../js/cart.js" type="module"></script>
     <script src="../js/checkout.js" type="module"></script>
   </head>
 
-  <body>
-  
+  <body>  
     <header id="main-header"></header>
     <main class="divider">
       <section class="products">
         <h2>My Cart</h2>
         <ul class="product-list"></ul>
-      
+        <div class="list-footer hide">  
+          <span class="list-total">Total: <span class="cart-subtotal">$0</span></span>
+  <span class="cart-count"></span>
+    <!-- Placeholder for dynamically loaded header -->
+    <header id="main-header"></header>
+
+    <main class="divider">
+      <section class="products">
+        <h2>My Cart</h2>
+
+        <ul class="product-list">
+          <!-- Dynamic product list will be loaded here -->
+        </ul>
       </section>
       <a href="/checkout/index.html">
         <button type="button">Checkout</button>
       </a>
     </main>
-
     <footer id="main-footer"></footer>
+    <!-- Placeholder for dynamically loaded footer -->
+    <footer id="main-footer"></footer>
+    <!-- Link to JavaScript to dynamically load header and footer -->
+    <script type="module" src="../js/main.js"></script>
+
   </body>
 </html>

@@ -1,3 +1,5 @@
+const baseURL = import.meta.env.VITE_SERVER_URL
+
 function convertToJson(res) { //converts API response to a Javascript object
   if (res.ok) { // Checks if the response is valid
     return res.json();
@@ -6,20 +8,20 @@ function convertToJson(res) { //converts API response to a Javascript object
 }
 
 export default class ProductData {
-  constructor(category) {
-    this.category = category;  //storing the product category ie (tents)
-    this.path = `../public/json/${this.category}.json`; // Constructs the path to the JSON file based on the category
+  constructor() {
+    //this.category = category;  //storing the product category ie (tents)
+   // this.path = `../public/json/${this.category}.json`; // Constructs the path to the JSON file based on the category
     
   }
-  getData() {
-    return fetch(this.path) // Fetches the JSON file from the constructed path
-      .then(convertToJson) //Converts JSON text to a JS object
-      .then((data) => data); //Now we can use the data as an object
+  async getData(category) {
+    const response = await fetch(`${baseURL}products/search/${category} `);
+    const data = await convertToJson(response);
+    return data.Result;
   }
   async findProductById(id) {
-    const products = await this.getData(); // Retrieves all products data
-    return products.find((item) => item.Id === id); // Finds and returns the product with the matching ID
+    const response = await fetch(`${baseURL}product/${id}`);
+    const data = await convertToJson(response);
+    console.log(data.Result);
+    return data.Result;
   }
 }
-
-

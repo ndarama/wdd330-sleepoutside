@@ -1,25 +1,19 @@
-import { getLocalStorage } from "./utils.mjs";
-import  setLocalStorage  from "./utils.mjs";
-import ShoppingCart from "./ShoppingCart.mjs";
+import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();
 
 function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-
-//week 2 individual task Bettina
-
-  if (cartItems.length === 0) {
-    document.querySelector(".product-list").innerHTML = "<p>Your cart is empty.</p>";
-    return;
-  }
+  const cartItems = getLocalStorage("so-cart") || [];
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  cartTotal(cartItems);
 }
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
+      src="${item.Images.PrimarySmall}"
       alt="${item.Name}"
     />
   </a>
@@ -29,24 +23,31 @@ function cartItemTemplate(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
-
+  
+</li>`; 
   return newItem;
 }
+//function to compute total items and total price
+function cartTotal(items) {
+  const cartCard = document.querySelector(".list-total");
+  const cartCountElem = document.querySelector(".cart-count");
+  const cartSubtotalElem = document.querySelector(".cart-subtotal");
 
-renderCartContents();
+  if (!cartCard || !cartCountElem || !cartSubtotalElem) {
+    console.error("Missing cart elements in HTML!");
+    return;
+  }
 
-const cartList = document.querySelector(".product-list"); 
-const cart = new ShoppingCart("so-cart", cartList);
-cart.init();
+  if (items.length <= 0) {
+    cartCard.classList.add("hide"); 
+  } else {
+    cartCard.classList.remove("hide"); 
+    const subtotal = items.reduce((acc, item) => acc + item.FinalPrice, 0);
+    const cartCount = items.length;
 
-//Week 2 Clear Cart Function
-function clearCart() {
-  localStorage.removeItem("so-cart"); // Remove items from storage
-  renderCartContents(); // Refresh the UI
+    cartCountElem.textContent = cartCount > 1 ? `${cartCount} items` : `${cartCount} item`;
+    cartSubtotalElem.textContent = `$${subtotal.toFixed(2)}`;
+  }
 }
 
-document.getElementById("clearCart").addEventListener("click", clearCart);
-
 renderCartContents();
-
